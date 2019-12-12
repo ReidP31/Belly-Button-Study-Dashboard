@@ -1,6 +1,6 @@
 function buildCharts(sample) {
     // Read in the JSON Data
-    d3.json("../../samples.json").then( data => {
+    d3.json("samples.json").then( data => {
         // Create the Data variables
         var allSamples = data.samples;
         var selectionArray = allSamples.filter(object => object.id == sample);
@@ -52,19 +52,13 @@ function buildCharts(sample) {
         };
 
         Plotly.newPlot("bubble", bubbleData, bubbleLayout)
-        
-        
-        
-
     }).catch(err => {
-        console.log('we are in the error state, trying again')
-        console.warn(err);
-        d3.json('samples.json').then(console.log)
+        console.log('an error occured inside buildCharts', err)
     });
 };
 
 function metaData(sample) {
-    d3.json("../../samples.json").then( data => {
+    d3.json("samples.json").then( data => {
         // Create metaData variables
         var metaData = data.metadata;
         var selectionArray = metaData.filter(obj => obj.id == sample);
@@ -82,7 +76,7 @@ function metaData(sample) {
 
         })
 
-    })
+    }).catch(err => console.log('an err happened in the metadata promise', err))
 };
 
 
