@@ -85,7 +85,7 @@ function init() {
     var selector = d3.select("#selDataset");
 
     // Read in the Data
-    d3.json("../../samples.json").then( data => {
+    d3.json("samples.json").then( data => {
         // Create init Variables
         var names = data.names;
         // Populate DropDown menu with sample IDs
@@ -99,7 +99,7 @@ function init() {
         var defaultSample = names[0];
         buildCharts(defaultSample);
         metaData(defaultSample);
-    });
+    }).catch(err => console.log('ok cool error!', err));
 };
 
 function idChange(newSample) {  
