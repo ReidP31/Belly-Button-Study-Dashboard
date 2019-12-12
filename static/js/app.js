@@ -1,6 +1,6 @@
 function buildCharts(sample) {
     // Read in the JSON Data
-    d3.json("samples.json").then( data => {
+    d3.json("./samples.json").then( data => {
         // Create the Data variables
         var allSamples = data.samples;
         var selectionArray = allSamples.filter(object => object.id == sample);
@@ -58,7 +58,7 @@ function buildCharts(sample) {
 };
 
 function metaData(sample) {
-    d3.json("samples.json").then( data => {
+    d3.json("./samples.json").then( data => {
         // Create metaData variables
         var metaData = data.metadata;
         var selectionArray = metaData.filter(obj => obj.id == sample);
@@ -85,7 +85,7 @@ function init() {
     var selector = d3.select("#selDataset");
 
     // Read in the Data
-    d3.json("samples.json").then( data => {
+    d3.json("./samples.json").then( data => {
         // Create init Variables
         var names = data.names;
         // Populate DropDown menu with sample IDs
