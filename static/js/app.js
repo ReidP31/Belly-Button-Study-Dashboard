@@ -56,6 +56,10 @@ function buildCharts(sample) {
         
         
 
+    }).catch(err => {
+        console.log('we are in the error state, trying again')
+        console.warn(err);
+        d3.json('samples.json').then(console.log)
     });
 };
 
